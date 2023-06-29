@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        function validarInput(promptMsg, errorMsg, validationFn) {
+            var input;
+
+            do {
+                input = prompt(promptMsg);
+            } while (!validationFn(input) && alert(errorMsg));
+
+            return input;
+        }
+
+        var nome = validarInput("Digite seu nome:", "Nome inválido. Seu nome deve ter mais de 3 letras.", input => input.length > 3);
+        var idade = parseFloat(validarInput("Digite sua idade:", "Idade inválida. A idade deve estar entre 0 e 150 anos.", input => parseFloat(input) >= 0 && parseFloat(input) <= 150));
+        var salario = parseFloat(validarInput("Digite seu salário:", "Salário inválido. O salário deve ser maior que zero.", input => parseFloat(input) > 0));
+        var sexo = validarInput("Digite seu sexo:\n(f - feminino / m - masculino)", "Sexo inválido. O sexo deve ser 'f' ou 'm'.", input => input === 'f' || input === 'm');
+        var estacivil = validarInput("Digite seu estado civil:\n(s - solteiro(a), c - casado(a), v - viúvo(a), d - divorciado(a))", "Estado civil inválido. O estado civil deve ser 's', 'c', 'v' ou 'd'.", input => input === 's' || input === 'c' || input === 'v' || input === 'd');
+
+        alert("Informações válidas!");
+    </script>
+
+    <p>
+        15. Faça um programa que leia e valide as seguintes informações:
+        <br> Nome: maior que 3 caracteres;
+        <br> Idade: entre 0 e 150;
+        <br> Salário: maior que zero;
+        <br> Sexo: 'feminino' ou 'masculino';
+        <br> Estado Civil: 'solteiro', 'casado', 'v', 'd';
+        
+    </p>
